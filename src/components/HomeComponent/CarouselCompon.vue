@@ -1,6 +1,6 @@
 <template>
     <div class="carousel">
-        <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
+        <van-swipe class="my-swipe" :autoplay="5000" indicator-color="white">
             <van-swipe-item v-for="(item, index) in images" :key="index">
                 <img :src="item.url" :alt="item.title">
             </van-swipe-item>
@@ -47,7 +47,7 @@ export default {
 
 <style>
 .my-swipe .van-swipe-item {
-    height: 500px;
+    height: 170px;
 }
 
 .my-swipe img {

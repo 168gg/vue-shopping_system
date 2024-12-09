@@ -17,12 +17,18 @@ const routes = [
     component: () => import('../views/AboutView.vue')
   },
   {
-    path: '/login',
-    name: 'login',
-    component: () => import('../views/LoginView.vue')
-  }
-
-
+    path:'/car',
+    name: 'car',
+    component: () => import('../views/CarView.vue')
+  },
+  {
+    path:"/video",
+    name:"video",
+    component:()=>import('../views/VideoView.vue')
+  },
+  // {
+  //   path:"/"
+  // }
 ]
 
 const router = new VueRouter({
