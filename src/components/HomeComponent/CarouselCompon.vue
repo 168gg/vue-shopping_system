@@ -1,7 +1,7 @@
 <template>
     <div class="carousel">
         <van-swipe class="my-swipe" :autoplay="5000" indicator-color="white">
-            <van-swipe-item v-for="(item, index) in images" :key="index">
+            <van-swipe-item v-for="(item, index) in images" :key="index" v-lazy="item.url">
                 <img :src="item.url" :alt="item.title">
             </van-swipe-item>
         </van-swipe>

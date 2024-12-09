@@ -12,11 +12,6 @@ const routes = [
     component: () => import('../views/HomeView.vue')
   },
   {
-    path: '/my',
-    name: 'my',
-    component: () => import('../views/AboutView.vue')
-  },
-  {
     path:'/car',
     name: 'car',
     component: () => import('../views/CarView.vue')
@@ -26,6 +21,11 @@ const routes = [
     name:"video",
     component:()=>import('../views/VideoView.vue')
   },
+  {
+    path: '/my',
+    name: 'my',
+    component: () => import('../views/AboutView.vue')
+  }
   // {
   //   path:"/"
   // }
