@@ -50,7 +50,9 @@ export default {
 .my-swipe .van-swipe-item {
     height: 260px;
 }
-
+.carousel{
+    z-index: -1;
+}
 .my-swipe img {
     width: 100%;
     height: 100%;
