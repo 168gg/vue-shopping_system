@@ -1,7 +1,7 @@
 <template>
     <div class="carousel">
-        <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-            <van-swipe-item v-for="(item, index) in images" :key="index">
+        <van-swipe class="my-swipe" :autoplay="5000" indicator-color="white">
+            <van-swipe-item v-for="(item, index) in images" :key="index" v-lazy="item.url">
                 <img :src="item.url" :alt="item.title">
             </van-swipe-item>
         </van-swipe>
@@ -14,9 +14,10 @@ export default {
     data() {
         return {
             images: [
-                { url: require('@/assets/images/1.jpg'), title: '1' },
-                { url: require('@/assets/images/2.jpg'), title: '2' },   
-                { url: require('@/assets/images/3.jpg'), title: '3' },   
+                { url: require('@/assets/images/t11.jpg'), title: '1' },
+                { url: require('@/assets/images/t12.jpg'), title: '2' },   
+                { url: require('@/assets/images/t13.jpg'), title: '3' },  
+                { url: require('@/assets/images/t14.jpg'), title: '4' } 
             ]
         }
     },
@@ -47,9 +48,11 @@ export default {
 
 <style>
 .my-swipe .van-swipe-item {
-    height: 500px;
+    height: 260px;
 }
-
+.carousel{
+    z-index: -1;
+}
 .my-swipe img {
     width: 100%;
     height: 100%;
