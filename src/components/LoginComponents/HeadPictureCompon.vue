@@ -55,22 +55,23 @@
   
   <style scoped>
   img {
-    width: 60%;
+    width: 80%;
     margin: 20px auto;
   }
   
   .custom-input >>> .van-field__control {
     color: rgb(7, 0, 0);
-    height: 34px;
+  
     background-color: #f0f0f0;
     font-size: 16px;
     border-radius: 4px;
-    padding-left: 10px;
+    padding: 10px 0 10px 20px;
+    font-size: 18px;
   }
   
   .custom-button {
-    background-color: #f56839;
-    color: #fdfdfd;
+    height: 40px;
+    background-color: #f16a5b;
     font-size: 16px;
   }
   
@@ -83,10 +84,10 @@
   
   .login {
     width: 80%;
-    margin: 20px auto;
+    padding:25px 0 25px 0;
     font-size: 16px;
     border-radius: 16px ;
-    background-color: #f56839;
+    background-color: #EBB0A9;
   
   }
   </style>
