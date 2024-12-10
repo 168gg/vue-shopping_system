@@ -2,10 +2,10 @@
   <div>
     <van-tabbar v-model="active" @change="onChange">
       <van-tabbar-item icon="home-o">主页</van-tabbar-item>
-      <van-tabbar-item icon="search">更多</van-tabbar-item>
-      <van-tabbar-item icon="friends-o">视频</van-tabbar-item>
-      <van-tabbar-item icon="setting-o">购物车</van-tabbar-item>
-      <van-tabbar-item icon="setting-o">我的</van-tabbar-item>
+      <van-tabbar-item icon="shop-o">点餐</van-tabbar-item>
+      <van-tabbar-item icon="video-o" >视频</van-tabbar-item>
+      <van-tabbar-item icon="balance-list-o">订单</van-tabbar-item>
+      <van-tabbar-item icon="user-o">我的</van-tabbar-item>
     </van-tabbar>
   </div>
 </template>
