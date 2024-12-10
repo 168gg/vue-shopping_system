@@ -14,9 +14,10 @@ export default {
     data() {
         return {
             images: [
-                { url: require('@/assets/images/1.jpg'), title: '1' },
-                { url: require('@/assets/images/2.jpg'), title: '2' },   
-                { url: require('@/assets/images/3.jpg'), title: '3' },   
+                { url: require('@/assets/images/t11.jpg'), title: '1' },
+                { url: require('@/assets/images/t12.jpg'), title: '2' },   
+                { url: require('@/assets/images/t13.jpg'), title: '3' },  
+                { url: require('@/assets/images/t14.jpg'), title: '4' } 
             ]
         }
     },
@@ -47,7 +48,7 @@ export default {
 
 <style>
 .my-swipe .van-swipe-item {
-    height: 170px;
+    height: 260px;
 }
 
 .my-swipe img {
