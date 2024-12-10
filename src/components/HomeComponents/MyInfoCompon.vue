@@ -34,7 +34,7 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
 .my-info-compon {
     width: 95%;
     display: flex;
@@ -63,6 +63,7 @@ export default {
 .text_title {
     display: block;
     font-size: 16px;
+    font-weight: bolder;
 }
 .text_contont{ 
     display: block;

@@ -34,7 +34,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .recommend-component {
     margin-top: 20px;
 }

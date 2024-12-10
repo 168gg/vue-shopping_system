@@ -1,17 +1,19 @@
 <template>
-    <div class="myView">v
-      <img alt="Vue logo" src="../assets/logo.png">
-  
-    </div>
-  </template>
-  
-  <script>
- 
-  
-  
-  export default {
-    name: 'MyView'
+  <div class="myView">
    
+    <HeadCompon/>
+
+  </div>
+</template>
+
+<script>
+import HeadCompon from '@/components/MineComponents/HeadCompon.vue'
+
+
+export default {
+  name: 'MyView',
+  components: {
+    HeadCompon: HeadCompon,
   }
-  </script>
-  
+}
+</script>
