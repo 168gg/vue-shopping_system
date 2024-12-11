@@ -14,7 +14,7 @@
                         <div class="product-name">{{ product.name }}</div>
                         <div class="product-price">{{ product.price }}元</div>
                     </div>
-                    <van-button class="add-button" round >+</van-button>
+                    <van-button class="add-button" round  size="mini">+</van-button>
                 </div>
             </div>
         </div>
@@ -144,13 +144,12 @@ export default {
     position: absolute;
     bottom: 6px;
     right: 9px;
-    width: 20px; 
-    height: 26px;     border: 3px  inherit rgba(207, 178, 178, 0.877);
-    background-color: rgba(228, 47, 47, 0.877);
-    color: #ffffff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
     font-size: 18px;
-    font-weight: bolder;
-    border-radius: 50%; 
 }
 
 .product-carousel::-webkit-scrollbar {
