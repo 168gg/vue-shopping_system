@@ -9,12 +9,12 @@
         <div class="product-carousel">
             <div class="product-item" v-for="product in products" :key="product.id">
                 <div class="product-box">
-                    <van-image :src="product.image" class="product-image" />
+                    <van-image :src="product.image" class="product-image" @click="goToDetail(product)" />
                     <div class="product-info">
                         <div class="product-name">{{ product.name }}</div>
                         <div class="product-price">{{ product.price }}元</div>
                     </div>
-                    <van-button class="add-button" round  size="mini">+</van-button>
+                    <van-button class="add-button" round size="mini" @click="addShoping(product)">+</van-button>
                 </div>
             </div>
         </div>
@@ -24,13 +24,19 @@
 <script>
 export default {
     name: 'SlideshowCompon',
+    props: {
+        goodsDtat: {
+            type: Object,
+            required: false
+        }
+    }, 
     data() {
         return {
             message: "大家都在喝",
             image: require('@/assets/images/localtionicon.png'), // 地址图片
             products: [
                 { id: 1, name: "产品1", price: 12.5, image: require('@/assets/images/pro1.jpg') },
-                { id: 2, name: "产品2", price: 20.0, image: require('@/assets/images/pro2.jpg') },
+                { id: 2, name: "产品2", price: 20.0, image: require('@/assets/images/pro1.jpg') },
                 { id: 3, name: "产品3", price: 15.0, image: require('@/assets/images/pro3.jpg') },
                 { id: 4, name: "产品4", price: 18.0, image: require('@/assets/images/pro4.jpg') },
                 { id: 5, name: "产品5", price: 22.0, image: require('@/assets/images/pro4.jpg') },
@@ -39,9 +45,15 @@ export default {
         }
     },
     methods: {
-        goToDetail(productId) {
+        goToDetail(product) {
+          
             // 跳转到商品详情页面
-            this.$router.push({ name: 'ProductDetail', params: { id: productId } });
+            console.log(product)
+            this.$store.commit('SET_PRODUCT_INFO',product)
+            // this.$router.push({ name: 'car' });
+        },
+        addShoping(product){
+            this.$store.commit('SET_SHOPPING_CAR',product)
         }
     }
 }
@@ -53,8 +65,8 @@ export default {
     align-items: center;
     background-color: #fddde6;
     padding: 4px 0;
-    
-    
+
+
 }
 
 .font1 {
@@ -76,7 +88,7 @@ export default {
 
 .address-image {
     width: 1.5rem;
-    height: 1.5rem; 
+    height: 1.5rem;
 }
 
 .product-carousel {
@@ -111,12 +123,12 @@ export default {
 
 .product-image {
     width: 100px;
-    
+
     height: 120px;
-   
+
     object-fit: cover;
-  
-    
+
+
 
 }
 
@@ -126,7 +138,7 @@ export default {
 
 .product-name {
     font-size: 12px;
-    
+
     margin: 5px 0;
     text-align: left;
 }
@@ -137,9 +149,10 @@ export default {
     /* 调整价格字体大小 */
     color: #e80606;
     text-align: left;
-    
+
     margin: 5px auto 10px 2px;
 }
+
 .add-button {
     position: absolute;
     bottom: 6px;
@@ -154,6 +167,6 @@ export default {
 
 .product-carousel::-webkit-scrollbar {
     display: none;
-  
+
 }
 </style>
