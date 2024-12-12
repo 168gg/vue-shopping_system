@@ -1,5 +1,7 @@
 <template>
+
   <div>
+    <MyInfoCompon></MyInfoCompon>
     <van-tabs v-model:active="active" @change="handleTabChange" class="NavBar">
       <van-tab v-for="(data, index) in datas" :key="index" :title="data.title"></van-tab>
     </van-tabs>
@@ -14,9 +16,12 @@
 import { ref, markRaw, computed } from 'vue'
 import NavBarComponen from "@/components/MoreComponents/NavBarComponen.vue"
 import shuangbei from '@/components/MoreComponents/shuangbei.vue'
-import FooterCompon from '@/components/FooterCompon.vue';
+import MyInfoCompon from '@/components/HomeComponents/MyInfoCompon.vue';
 
 export default {
+  components: {
+    MyInfoCompon: MyInfoCompon,
+  },
   props: {
     datas: {
       type: Array,
@@ -44,12 +49,18 @@ export default {
 </script>
 <style scoped>
 .NavBar {
-  position: fixed;
-  top: 0;
-  width: 100%;   
-  z-index: 1000; 
-}
-.good-list{
+  background-color: rgb(1, 0, 0);
+
   position: relative;
+  margin: 10px auto 10px auto;
+  width: 98%;
+  z-index: 1000;
+}
+
+
+
+.good-list {
+  position: relative;
+
 }
 </style>

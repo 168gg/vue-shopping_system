@@ -50,10 +50,11 @@ export default {
             // 跳转到商品详情页面
             console.log(product)
             this.$store.commit('SET_PRODUCT_INFO',product)
-            // this.$router.push({ name: 'car' });
+            this.$router.push({ name: 'more' });
         },
         addShoping(product){
             this.$store.commit('SET_SHOPPING_CAR',product)
+            this.$router.push({ name: 'car' });
         }
     }
 }
