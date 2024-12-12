@@ -33,7 +33,7 @@ export default {
     data() {
         return {
             message: "大家都在喝",
-            image: require('@/assets/images/localtionicon.png'), // 地址图片
+            image: require('@/assets/images/localtionicon.png'), 
             products: [
                 { id: 1, name: "产品1", price: 12.5, image: require('@/assets/images/pro1.jpg') },
                 { id: 2, name: "产品2", price: 20.0, image: require('@/assets/images/pro1.jpg') },
