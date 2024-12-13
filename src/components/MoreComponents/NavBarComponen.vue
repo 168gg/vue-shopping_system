@@ -2,15 +2,15 @@
     <div class="goods-container">
         <!-- 左侧导航栏 -->
         <van-sidebar v-model="localActive" class="goods-nav" @change="handleSidebarChange">
-            <van-sidebar-item v-for="(item, index) in goodsclass" :key="index" :title="item" />
+            <van-sidebar-item v-for="(item, index) in filteredGoodsclass" :key="index" :title="item" />
         </van-sidebar>
 
         <!-- 右侧商品列表 -->
         <div class="goods-list" ref="goodsList">
-            <div v-for="(group, index) in groupedGoods" :key="index" class="goods-section" :data-index="index">
-                <span class="har-text">{{ goodsclass[index] }}</span>
+            <div v-for="(group, index) in groupedGoods" :key="index" class="goods-section" :ref="'section-' + index" :data-index="index">
+                <span class="har-text">{{ filteredGoodsclass[index] }}</span>
                 <van-card v-for="(item, itemIndex) in group" :key="itemIndex" :price="item.price" :title="item.title"
-                    :desc="item.discription" thumb="https://fastly.jsdelivr.net/npm/@vant/assets/ipad.jpeg">
+                    :desc="item.discription" :thumb="item.image" @click="goToDetail(item)">
                     <template #tags>
                         <van-tag v-for="(tag, tagIndex) in item.tags" :key="tagIndex" plain type="primary"
                             class="tag-item">
@@ -18,7 +18,10 @@
                         </van-tag>
                     </template>
                     <template #footer>
-                        <van-button round size="mini" class="buttou-add">+</van-button>
+                        <!-- Add to shopping cart button -->
+                        <van-button round size="mini" class="buttou-add" @click.stop="addShoping(item)">
+                            +
+                        </van-button>
                     </template>
                 </van-card>
             </div>
@@ -35,211 +38,15 @@ export default {
             default: 0,
         },
         goodsList: {
-            
             type: Array,
             default: () => [
-                {
-                    id: 1,
-                    title: "商品1",
-                    goodsclass: "商品1",
-                    discription: "商品描述",
-                    price: 12.5,
-                    tags: ["标签1", "标签2", "标签3"],
-                },
-                {
-                    id: 1,
-                    title: "商品1",
-                    goodsclass: "商品1",
-                    discription: "商品描述",
-                    price: 12.5,
-                    tags: ["标签1", "标签2", "标签3"],
-                },
-                {
-                    id: 1,
-                    title: "商品1",
-                    goodsclass: "商品1",
-                    discription: "商品描述",
-                    price: 12.5,
-                    tags: ["标签1", "标签2", "标签3"],
-                },
-                {
-                    id: 1,
-                    title: "商品1",
-                    goodsclass: "商品1",
-                    discription: "商品描述",
-                    price: 12.5,
-                    tags: ["标签1", "标签2", "标签3"],
-                },
-                {
-                    id: 1,
-                    title: "商品1",
-                    goodsclass: "商品1",
-                    discription: "商品描述",
-                    price: 12.5,
-                    tags: ["标签1", "标签2", "标签3"],
-                },
-                {
-                    id: 2,
-                    goodsclass: "商品2",
-                    title: "商品2",
-                    discription: "商品描述",
-                    price: 15.0,
-                    tags: ["标签1", "标签2"],
-                },
-                {
-                    id: 2,
-                    goodsclass: "商品2",
-                    title: "商品2",
-                    discription: "商品描述",
-                    price: 15.0,
-                    tags: ["标签1", "标签2"],
-                },
-                {
-                    id: 2,
-                    goodsclass: "商品2",
-                    title: "商品2",
-                    discription: "商品描述",
-                    price: 15.0,
-                    tags: ["标签1", "标签2"],
-                },
-                {
-                    id: 2,
-                    goodsclass: "商品2",
-                    title: "商品2",
-                    discription: "商品描述",
-                    price: 15.0,
-                    tags: ["标签1", "标签2"],
-                },
-                {
-                    id: 2,
-                    goodsclass: "商品2",
-                    title: "商品2",
-                    discription: "商品描述",
-                    price: 15.0,
-                    tags: ["标签1", "标签2"],
-                },
-                {
-                    id: 3,
-                    goodsclass: "商品3",
-                    title: "商品3",
-                    discription: "商品描述",
-                    price: 20.0,
-                    tags: ["标签1", "标签3"],
-                },
-                {
-                    id: 3,
-                    goodsclass: "商品3",
-                    title: "商品3",
-                    discription: "商品描述",
-                    price: 20.0,
-                    tags: ["标签1", "标签3"],
-                },
-                {
-                    id: 3,
-                    goodsclass: "商品3",
-                    title: "商品3",
-                    discription: "商品描述",
-                    price: 20.0,
-                    tags: ["标签1", "标签3"],
-                },
-                {
-                    id: 3,
-                    goodsclass: "商品3",
-                    title: "商品3",
-                    discription: "商品描述",
-                    price: 20.0,
-                    tags: ["标签1", "标签3"],
-                },
-                {
-                    id: 3,
-                    goodsclass: "商品3",
-                    title: "商品3",
-                    discription: "商品描述",
-                    price: 20.0,
-                    tags: ["标签1", "标签3"],
-                },
-                {
-                    id: 3,
-                    goodsclass: "商品3",
-                    title: "商品3",
-                    discription: "商品描述",
-                    price: 20.0,
-                    tags: ["标签1", "标签3"],
-                },
-                {
-                    id: 3,
-                    goodsclass: "商品3",
-                    title: "商品3",
-                    discription: "商品描述",
-                    price: 20.0,
-                    tags: ["标签1", "标签3"],
-                },
-                {
-                    id: 4,
-                    goodsclass: "商品4",
-                    title: "商品4",
-                    discription: "商品描述",
-                    price: 25.0,
-                    tags: ["标签2", "标签3"],
-                },
-                {
-                    id: 4,
-                    goodsclass: "商品4",
-                    title: "商品4",
-                    discription: "商品描述",
-                    price: 25.0,
-                    tags: ["标签2", "标签3"],
-                },
-                {
-                    id: 4,
-                    goodsclass: "商品4",
-                    title: "商品4",
-                    discription: "商品描述",
-                    price: 25.0,
-                    tags: ["标签2", "标签3"],
-                },
-                {
-                    id: 4,
-                    goodsclass: "商品4",
-                    title: "商品4",
-                    discription: "商品描述",
-                    price: 25.0,
-                    tags: ["标签2", "标签3"],
-                },
-                {
-                    id: 4,
-                    goodsclass: "商品4",
-                    title: "商品4",
-                    discription: "商品描述",
-                    price: 25.0,
-                    tags: ["标签2", "标签3"],
-                },
-                {
-                    id: 4,
-                    goodsclass: "商品4",
-                    title: "商品4",
-                    discription: "商品描述",
-                    price: 25.0,
-                    tags: ["标签2", "标签3"],
-                },
-                {
-                    id: 4,
-                    goodsclass: "商品4",
-                    title: "商品4",
-                    discription: "商品描述",
-                    price: 25.0,
-                    tags: ["标签2", "标签3"],
-                },
-                {
-                    id: 4,
-                    goodsclass: "商品4",
-                    title: "商品4",
-                    discription: "商品描述",
-                    price: 25.0,
-                    tags: ["标签2", "标签3"],
-                },
-            ],
-            
+                { id: 1, title: "产品1", goodsclass: "商品1", discription: "商品描述", price: 12.5, tags: ["标签1", "标签2"], image: require('@/assets/images/pro1.jpg') },
+                { id: 2, title: "产品2", goodsclass: "商品2", discription: "商品描述", price: 20.0, tags: ["标签1", "标签3"], image: require('@/assets/images/pro2.jpg') },
+                { id: 3, title: "产品3", goodsclass: "商品3", discription: "商品描述", price: 15.0, tags: ["标签2", "标签3"], image: require('@/assets/images/pro3.jpg') },
+                { id: 4, title: "产品4", goodsclass: "商品4", discription: "商品描述", price: 18.0, tags: ["标签3"], image: require('@/assets/images/pro4.jpg') },
+                { id: 5, title: "产品5", goodsclass: "商品5", discription: "商品描述", price: 22.0, tags: ["标签1", "标签2"], image: require('@/assets/images/pro4.jpg') },
+                { id: 6, title: "产品6", goodsclass: "商品6", discription: "商品描述", price: 19.5, tags: ["标签2"], image: require('@/assets/images/pro4.jpg') },
+            ]
         },
     },
     data() {
@@ -247,6 +54,7 @@ export default {
             goodsclass: [], // 左侧导航栏的分类
             groupedGoods: [], // 按分类分组的商品
             localActive: this.active, // 当前激活的导航项
+            filteredGoodsclass: ["商品1", "商品2", "商品4", "商品6"], // 左侧导航栏只显示的分类
         };
     },
     watch: {
@@ -268,24 +76,35 @@ export default {
                 classMap[item.goodsclass].push(item);
             });
 
-            this.goodsclass = Object.keys(classMap);
-            this.groupedGoods = Object.values(classMap);
+            this.groupedGoods = this.filteredGoodsclass.map((className) => classMap[className] || []); // 根据过滤后的分类生成商品分组
         },
 
         // 点击左侧导航栏时，滚动到对应的商品列表位置
         handleSidebarChange(index) {
-            const sections = this.$refs.goodsList.querySelectorAll(".goods-section");
-            if (sections[index]) {
-                // 计算目标位置
-                const targetPosition = sections[index].offsetTop;
-                // 使用 scrollTo 方法进行平滑滚动
-                this.$refs.goodsList.scrollTo({
-                    top: targetPosition,
-                    behavior: "smooth"
-                });
-            }
+            this.$nextTick(() => {  // 确保 DOM 已更新
+                const targetSection = this.$refs[`section-${index}`];
+                if (targetSection) {
+                    const targetPosition = targetSection.offsetTop;
+                    this.$refs.goodsList.scrollTo({
+                        top: targetPosition - 50,
+                        behavior: "smooth"
+                    });
+                }
+            });
         },
-    },
+
+        goToDetail(product) {
+            // 跳转到商品详情页面
+            this.$store.commit('SET_PRODUCT_INFO', product);
+            this.$router.push({ name: 'more' });
+        },
+
+        addShoping(product) {
+            // 将商品添加到购物车
+            this.$store.commit('SET_SHOPPING_CAR', product);
+            this.$router.push({ name: 'ProductsList' });
+        }
+    }
 };
 </script>
 
@@ -324,10 +143,6 @@ export default {
     margin-bottom: 20px;
 }
 
-.goods-section {
-    margin-bottom: 20px;
-}
-
 .goods-section h3 {
     font-size: 18px;
     font-weight: bold;
@@ -339,10 +154,10 @@ export default {
 }
 
 :deep(.van-card__thumb) {
-    width: 140px;
-    height: 120px;
-    margin-bottom: -100px;
-    margin-right: -5px;
+    width: 100px;
+    height: 90px;
+    margin-bottom: 0px;
+    margin-right: 5px;
 }
 
 :deep(.van-card__img) {
@@ -398,6 +213,7 @@ export default {
     right: 15px;
     bottom: 8px;
 }
+
 .tag-item {
     color: white;
     background-color: rgba(236, 136, 136, 0.656);

@@ -34,7 +34,14 @@ const routes = [
     path:"/more",
     name:"more",
     component:()=>import("../views/MoreView.vue")
-  }
+  },
+    {
+        path: '/products-list',
+        name: 'ProductsList',
+        component: () => import('@/components/CarComponents/ProductsList.vue'),
+    },
+
+
 ]
 
 const router = new VueRouter({

@@ -45,7 +45,7 @@ export default {
     return {
       user: {
         name: "小雪球",
-        points: 51,
+        points: 81,
       },
       tabs: ["每日礼", "成长礼", "心意礼"],
       activeTab: 0, // 默认选中第一个标签
