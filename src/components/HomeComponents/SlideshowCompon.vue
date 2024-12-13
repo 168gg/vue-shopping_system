@@ -50,7 +50,7 @@ export default {
             // 跳转到商品详情页面
             console.log(product)
             this.$store.commit('SET_PRODUCT_INFO',product)
-            this.$router.push({ name: 'more' });
+            this.$router.push({ name: 'goods' });
         },
         addShoping(product){
             this.$store.commit('SET_SHOPPING_CAR',product)

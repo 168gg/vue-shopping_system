@@ -32,7 +32,8 @@ export default {
           uuid: 2,
           title: '商品2',
           price: '¥ 99.00',
-          imges: 'https://img.yzcdn.cn/'
+          imges: 'https://img.yzcdn.cn/vant/ipad.jpeg',
+          discription: '商品描述'
           } 
       ]
     }
