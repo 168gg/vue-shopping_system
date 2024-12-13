@@ -3,14 +3,16 @@ import App from './App.vue'
 import router from './router'
 import Vant from 'vant'
 import 'vant/lib/index.css'
+import store from './store'
 import axios from 'axios'
 import { Lazyload } from 'vant'
-
+import FooterCompon from './components/FooterCompon.vue'
 
 Vue.config.productionTip = false
 
 // 注册 Vant
 Vue.use(Vant)
+Vue.component('FooterCompon', FooterCompon)
 
 
 Vue.use(Lazyload)
@@ -23,6 +25,7 @@ Vue.use(Lazyload)
 Vue.prototype.$axios = axios;
 
 new Vue({
+  store,
   router,
   render: h => h(App)
 }).$mount('#app')

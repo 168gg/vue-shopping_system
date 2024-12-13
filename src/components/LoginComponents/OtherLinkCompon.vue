@@ -2,7 +2,7 @@
     <div class="other-link-compon" >
         <van-button v-for="(images, index) in imgUrls" :key="index" 
             :style="{ backgroundImage: `url(${images.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }"
-            @click="go_link(images)">
+            @click="go_link(images)" class="other-link-button">
         </van-button>
     </div>
 
@@ -13,10 +13,10 @@ export default {
     data() {
         return {
             imgUrls: [
-               {image:require('@/assets/images/mxt.png'),url: 'https://www.baidu.com'} ,
-               { image:require('@/assets/images/mxt.png'),url: 'https://www.baidu.com' },
-               { image:require('@/assets/images/mxt.png'),url: 'https://www.baidu.com' },
-               {image:require('@/assets/images/mxt.png'),url: 'https://www.baidu.com' }
+               {image:require('@/assets/images/qq.png'),url: 'https://www.baidu.com'} ,
+               { image:require('@/assets/images/wx.png'),url: 'https://www.baidu.com' },
+               { image:require('@/assets/images/wb.png'),url: 'https://www.baidu.com' },
+               {image:require('@/assets/images/zfb.png'),url: 'https://www.baidu.com' }
 
             ],
             value: 0
@@ -58,5 +58,9 @@ export default {
 }
 .other-link-compon{
     margin-top: 30px;
+}
+.other-link-button{
+    height: 60px;
+    border-radius: 50%;
 }
 </style>
