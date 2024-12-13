@@ -6,10 +6,10 @@
           <div class="icon">
             <img :src="item.image" :alt="item.message" />
           </div>
-          <div class="text">
+          <!-- <div class="text">
             <h3>{{ item.title }}</h3>
             <p>{{ item.message }}</p>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="menu-section">
@@ -91,8 +91,8 @@
   }
   
   .option .icon img {
-    width: 90px;
-    height: 90px;
+    width: 100%;
+    height: 100%;
     margin-bottom: 1px;
   }
   
